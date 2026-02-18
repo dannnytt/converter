@@ -1,4 +1,4 @@
-package org.example;
+package org.example.converter;
 
 import java.util.regex.Pattern;
 

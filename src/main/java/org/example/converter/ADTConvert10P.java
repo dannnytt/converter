@@ -1,4 +1,4 @@
-package org.example;
+package org.example.converter;
 
 public class ADTConvert10P {
 
