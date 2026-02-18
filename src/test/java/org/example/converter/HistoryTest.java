@@ -31,10 +31,10 @@ public class HistoryTest {
         history.addRecord(12, 4, "23.42", "52.42");
         history.addRecord(12, 4, "11", "11");
 
-        History.Record expectedValue = new History.Record(12, 4, "11", "11");
-        History.Record actualValue = history.get(2);
+        History.Record expect = new History.Record(12, 4, "11", "11");
+        History.Record actual = history.get(2);
 
-        Assertions.assertEquals(expectedValue, actualValue);
+        Assertions.assertEquals(expect, actual);
     }
 
     @Test void testOverride2() {
@@ -46,10 +46,10 @@ public class HistoryTest {
         History.Record toOverride = new History.Record(1, 1, "1", "1");
         history.set(1, toOverride);
 
-        History.Record expectedValue = new History.Record(1, 1, "1", "1");
-        History.Record actualValue = history.get(1);
+        History.Record expect = new History.Record(1, 1, "1", "1");
+        History.Record actual = history.get(1);
 
-        Assertions.assertEquals(expectedValue, actualValue);
+        Assertions.assertEquals(expect, actual);
     }
 
     @Test void testOverride3() {
@@ -61,7 +61,6 @@ public class HistoryTest {
     @Test void testOverride4() {
         History history = new History();
         history.addRecord(3, 7, "11.11", "11.11");
-
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> history.get(1));
     }
 
