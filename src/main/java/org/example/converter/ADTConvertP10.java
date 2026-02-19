@@ -12,7 +12,7 @@ public class ADTConvertP10 {
 
         for (char ch : pNum.toCharArray()) {
             if (ch == '.') continue;
-            if (charToNum(ch) > base) throw new IllegalArgumentException();
+            if (charToNum(ch) >= base) throw new IllegalArgumentException();
         }
 
         Pattern leftRight = Pattern.compile("^[0-9A-Fa-f]+\\.[0-9A-Fa-f]+$");
@@ -51,11 +51,8 @@ public class ADTConvertP10 {
 
     public static double convert(String pNum, int base, double weight) {
 
-        if (weight % base != 0)
-            throw new IllegalArgumentException();
-
-        int degree = (int) (Math.log(weight) / Math.log(base)) - 1;
-        double result = 0.0d;
+        int degree = pNum.length() - 1;
+        double result = 0.0;
 
         for (int i = 0; i < pNum.length(); i++, degree--) {
             result += charToNum(pNum.charAt(i)) * Math.pow(base, degree);
@@ -63,6 +60,5 @@ public class ADTConvertP10 {
 
         return result;
     }
-
 
 }
