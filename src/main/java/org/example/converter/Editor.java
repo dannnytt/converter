@@ -22,6 +22,7 @@ public class Editor {
     public String getNumber() {
         return number;
     }
+    public void setNumber(String value) { number = value; }
 
     public void addDigit(int digit) {
 
@@ -67,7 +68,7 @@ public class Editor {
         number = "";
     }
 
-    public void doEdit(Commands command) {
+    public String doEdit(Commands command) {
         switch (command) {
             case Commands.add0 -> addZero();
             case Commands.add1 -> addDigit(1);
@@ -88,6 +89,10 @@ public class Editor {
             case Commands.addDot -> addDelim();
             case Commands.bs -> bs();
             case Commands.clear -> clear();
+            default -> {
+                return number;
+            }
         }
+        return number;
     }
 }
