@@ -9,7 +9,7 @@ import java.awt.event.*;
 
 public class ConverterFrame extends JFrame {
 
-    private ADTControl controller;
+    private final ADTControl controller;
 
     private JSlider trackBar1;
     private JSpinner numericUpDown1;
@@ -24,11 +24,7 @@ public class ConverterFrame extends JFrame {
     private JLabel labelInputCaption;
     private JLabel labelOutputCaption;
 
-    private JButton[] digitButtons = new JButton[16];
-    private JButton buttonDot;
-    private JButton buttonBS;
-    private JButton buttonCL;
-    private JButton buttonExec;
+    private final JButton[] digitButtons = new JButton[16];
 
     private JMenuItem exitMenuItem;
     private JMenuItem historyMenuItem;
@@ -44,7 +40,7 @@ public class ConverterFrame extends JFrame {
     private void initComponents() {
         setTitle("Конвертер систем счисления");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(900, 650);
+        setSize(900, 800);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
@@ -174,10 +170,10 @@ public class ConverterFrame extends JFrame {
             panel.add(btn);
         }
 
-        buttonDot = createSpecialButton(".", Editor.Commands.addDot);
-        buttonBS = createSpecialButton("BS", Editor.Commands.bs);
-        buttonCL = createSpecialButton("CL", Editor.Commands.clear);
-        buttonExec = createSpecialButton("=", Editor.Commands.exec);
+        JButton buttonDot = createSpecialButton(".", Editor.Commands.addDot);
+        JButton buttonBS = createSpecialButton("BS", Editor.Commands.bs);
+        JButton buttonCL = createSpecialButton("CL", Editor.Commands.clear);
+        JButton buttonExec = createSpecialButton("=", Editor.Commands.exec);
 
         buttonExec.setBackground(new Color(120, 200, 120));
         buttonExec.setFont(new Font("Segoe UI", Font.BOLD, 16));
